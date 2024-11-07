@@ -7,6 +7,15 @@ async function getNotes() {
   const data = await res.json();
   return data?.items as any[];
 }
+
+async function createNote(formData: FormData) {
+  "use server";
+  const rawFormData = {
+    title: formData.get("title"),
+    content: formData.get("content"),
+  };
+}
+
 export default async function NotesPage() {
   const notes = await getNotes();
 
@@ -24,12 +33,12 @@ function Note({ note }: any) {
   const { id, title, content, created } = note || {};
 
   return (
-    <Link href={`/notes/${id}`}>
-      <div>
+    <article>
+      <Link href={`/notes/${id}`}>
         <h2>{title}</h2>
         <h2>{content}</h2>
         <p>{created}</p>
-      </div>
-    </Link>
+      </Link>
+    </article>
   );
 }
