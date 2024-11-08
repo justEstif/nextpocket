@@ -1,5 +1,10 @@
-import Link from "next/link";
+import CreateNote from "@/components/CreateNote/CreateNote";
 import "@picocss/pico";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home - Notes",
+};
 
 export default function RootLayout({
   children,
@@ -22,13 +27,11 @@ function NavBar() {
   return (
     <nav>
       <ul>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
+        <li>Notes</li>
       </ul>
       <ul>
         <li>
-          <Link href="/notes">Notes</Link>
+          <CreateNote />
         </li>
       </ul>
     </nav>
