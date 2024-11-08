@@ -28,7 +28,7 @@ function Note({ note }: any) {
 
   return (
     <article>
-      <Link href={`/notes/${id}`}>
+      <Link href={`/${id}`}>
         <h2>{title}</h2>
         <h2>{content}</h2>
         <p>{created}</p>

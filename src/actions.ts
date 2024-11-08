@@ -33,9 +33,9 @@ export async function createNote(
   if (!res.ok) {
     return { message: "Failed to create a note" };
   }
-  revalidatePath("/notes");
+  revalidatePath("/");
   if (!rawFormData.keepOpen) {
-    redirect("/notes");
+    redirect("/");
   }
   return { message: "Added note" };
 }

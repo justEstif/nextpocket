@@ -7,7 +7,8 @@ async function getNote(noteId: string) {
 }
 
 export default async function NotePage({ params }: any) {
-  const { id, title, content, created } = await getNote(params.id);
+  const { id: paramsId } = await params;
+  const { id, title, content, created } = await getNote(paramsId);
   return (
     <section>
       <h1>Note</h1>
